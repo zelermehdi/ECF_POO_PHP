@@ -1,4 +1,5 @@
 <?php
+require_once ('category.php');
 
 class Product {
 
@@ -15,23 +16,110 @@ private $categories;
     $this-> discount=$discount;
 	$this-> categories=$categories;
 	}
+	public function getName()
+  {
+    return $this->name;
+  }
+  public function setName($name)
+  {
+    $this->name=$name;
+  }
+  public function getPrice()
+  {
+    return $this->price;
+  }
+  public function setPrice($price)
+  {
+    $this->price=$price;
+  }
+
+  public function getPromotion()
+  {
+    return $this->promotion;
+  }
+  public function setPromotion($promotion)
+  {
+    $this->promotion=$promotion;
+  }
+
+  public function getDiscount()
+  {
+    return $this->discount;
+  }
+  public function setDiscount($discount)
+  {
+    $this->discount=$discount;
+  }
+
+  public function getCategories()
+  {
+    return $this->categories;
+  }
+  public function setCategories($categories)
+  {
+    $this->categories=$categories;
+  }
+
+
+
 }
 
 
 
+$produit1= new Product( "PC Portable Gaming MSI GL75 Leopard 10SFK-457FR 17,3 Intel Core i7 16 Go RAM 256 Go SSD + 1 To SATA Noir",1999 , "oui", 33,"ordinateurs portables");
+ $produit2=new Product("PC Portable Gaming Asus TUF505DV-HN232T 15.6 AMD Ryzen 7 16 Go RAM 512 Go SSD Noir",1499 ,"Oui", 33,"Ordinateurs Portables");
+ $produit3=new product("MICHAËL GREGORIO",43,"non","non","Spectacles Rodez");
+ $produit4=new product("DANIEL GUICHARD",43,"non",20,"Spectacles Rodez");
+ $produit5=new product("PC Portable Gaming Acer Predator Triton 700 PT715-51-76D4 15.6 Gaming Intel Core i7 32 Go RAM 256 Go SSD + 256 Go SATA Noir",3499,"non","non","Ordinateurs Portables");
 
-$produitPromotion = new Product( "PC Portable Gaming MSI GL75 Leopard 10SFK-457FR 17,3 Intel Core i7 16 Go RAM 256 Go SSD + 1 To SATA Noir",1999 , "oui", 33,"ordinateurs protables");
- $produitPromotion1=new Product("PC Portable Gaming Asus TUF505DV-HN232T 15.6 AMD Ryzen 7 16 Go RAM 512 Go SSD Noir",1499 ,"Oui", 33,"Ordinateurs Portables");
+$tableProduct=[$produit1,$produit2,$produit3,$produit4,$produit5];
+
+
+// 4/ Afficher la liste des produits en promotion. Information affichée : nom du produit
+
+foreach($tableProduct as $product) {
+  if($product->getPromotion()!=="non" ){
+    echo $product->getName()."</br> ";
+  }
+}
+
+// 5/ Afficher la liste des produits bénéficiant d’une remise. Informations affichées : nom du produit, montant sans remise, montant avec remise
+
+foreach($tableProduct as $product ) {
+  if($product->getDiscount()>1){
+    echo $product->getName()."</br>";
+}
+}
+
+// var_dump($produit1,$produit2,$produit3,$produit4,$produit5);
  
 
 
 
-$tablePromotion = array(
-	$produitPromotion,
-	$produitPromotion1
-);
-var_dump($tablePromotion);
-// $produitRemise= new Product("DANIEL GUICHARD",43, );
+
+
+
+
+
+// echo $produit1->getCategories();
+
+
+
+
+
+// $produitPromotion->setName("mon nouveau nom");
+
+
+
+
+
+
+//  echo $tablePromotion->getName();
+
+
+
+// var_dump($tablePromotion);
+// // $produitRemise= new Product("DANIEL GUICHARD",43, );
 
 
 ?>
